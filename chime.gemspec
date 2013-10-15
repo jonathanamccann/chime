@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "chime.gemspec",
     "lib/chime.rb",
     "lib/chime/emotions/emotion_bank.rb",
     "lib/chime/emotions/emotions.csv",
