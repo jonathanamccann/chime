@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "chime"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jonathanamccann"]
-  s.date = "2013-10-15"
+  s.date = "2013-11-04"
   s.description = "Text Analysis for Member Based Organizations"
   s.email = "jonathanamccann@gmail.com"
   s.extra_rdoc_files = [
@@ -29,9 +29,11 @@ Gem::Specification.new do |s|
     "chime.gemspec",
     "lib/chime.rb",
     "lib/chime/emotions/emotion_bank.rb",
+    "lib/chime/emotions/emotion_bank_phrases.rb",
     "lib/chime/emotions/emotions.csv",
     "lib/chime/emotions/stopwords.rb",
     "lib/chime/emotions/subjectivity.csv",
+    "lib/chime/emotions/term_categories.rb",
     "lib/chime/emotions/term_polarities.rb",
     "lib/chime/version.rb",
     "test/helper.rb",

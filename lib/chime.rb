@@ -2,6 +2,9 @@ require_relative "./chime/version"
 require_relative './chime/emotions/emotion_bank.rb'
 require_relative './chime/emotions/term_polarities.rb'
 require_relative './chime/emotions/stopwords.rb'
+require_relative './chime/emotions/term_categories.rb'
+require_relative './chime/emotions/emotion_bank_phrases.rb'
+
 require 'lingua/stemmer'
 
 module Chime
@@ -12,6 +15,12 @@ module Chime
     Chime.get_emotion_score(message, EmotionBank.get_term_emotions, build_term_frequencies(message))
   end
 
+    # this method returns the best-fit emotion for the status message
+  def self.category(message)
+    # get the emotion for which the emotion score value is highest
+    Chime.get_category_score(message, TermCategories.get_term_categories, build_term_frequencies(message))
+  end
+
   # this method returns the polarity value for the status message
   # (normalized by the number of 'polar' words that the status
   # message contains)
@@ -20,6 +29,30 @@ module Chime
     Chime.get_polarity_score(message, TermPolarities.get_term_polarities, Chime.build_term_frequencies(message))
   end
 
+#TODO: Utilize stems and stop words within the next two methods.
+
+#This method works off of phrases instead of just words
+  def self.category_phrases(array)
+    array.map{|e| TermCategories.get_term_categories.find(proc{[nil,"Undefined"]}){|k,v| e.downcase.include? k}.last}
+  end
+
+
+#This method works off of phrases instead of just words  
+  def self.emotion_phrases(array)
+    array.map{|e| EmotionBankPhrases.get_term_emotion_phrases.find(proc{[nil,"Ambiguous"]}){|k,v| e.downcase.include? k}.last}
+  end
+
+#Pull EmotionBankPhrases into strictly positive hash
+  def self.emotion_phrases_positive_array
+    EmotionBankPhrases.get_term_emotion_phrases.select { |key, value| value.to_s.match("Positive") }
+  end
+
+#Pull EmotionBankPhrases into strictly negative hash
+   def self.emotion_phrases_negative_array
+    EmotionBankPhrases.get_term_emotion_phrases.select { |key, value| value.to_s.match("Negative") }
+  end
+
+            
 
   private
 
@@ -67,11 +100,24 @@ module Chime
       check_emoticon_for_emotion(emotion_score, message)
   	end
 
+        # this method takes an emotion-words hash and a hash containing word
+    # frequencies for the status message, calculates a numerical score
+    # for each possble emotion, and returns the emotion with the highest
+    # "score"
+    def self.get_category_score(message, categories, term_frequencies, category_score = {})
+      term_frequencies.each do |key,value|
+        set_categories(categories, category_score, key, value)
+      end
+      # return an emotion_score_hash to be processed by emotion
+      # get clue from any emoticons present
+      check_emoticon_for_category(category_score, message)
+    end
+
   	# this method gives the status method a normalized polarity
   	# value based on the words it contains
   	def self.get_polarity_score (message, polarity_hash, term_frequencies, polarity_scores = [])
   		term_frequencies.each do |key, value|
-        set_polarities(key, value, polarity_hash, polarity_scores)
+              set_polarities(key, value, polarity_hash, polarity_scores)
   		end
 
   		# return an polarity_score_hash to be processed by polarity method
@@ -103,6 +149,12 @@ module Chime
       end
     end
 
+    def self.set_categories(categories, category_score, term, frequency)
+      categories.keys.each do |k|
+        store_categories(categories, category_score, k, term, frequency)
+      end
+    end
+
     def self.set_polarities(term, frequency, polarity_hash, polarity_scores)
       polarity_hash.keys.each do |k|
         store_polarities(term, k, polarity_hash, polarity_scores)
@@ -113,6 +165,13 @@ module Chime
       if emotions[emotion].include?(term)
         emotion_score[emotion] ||= 0
         emotion_score[emotion] += frequency
+      end
+    end
+
+    def self.store_categories(categories, category_score, category, term, frequency)
+      if categories[category].include?(term)
+        category_score[category] ||= 0
+        category_score[category] += frequency
       end
     end
 
@@ -134,12 +193,33 @@ module Chime
       end
     end
 
+    def self.check_emoticon_for_category(category_score, message)
+      if (happy_emoticon(message) && sad_emoticon(message))
+         "ambiguous-cat"
+      elsif happy_emoticon(message)
+         "joy-cat"
+      elsif sad_emoticon(message)
+         "sadness-cat"
+      else
+        return_category_score(category_score)
+      end
+    end
+
     def self.return_emotion_score(emotion_score)
       ## 0 if unable to detect emotion
       if emotion_score == {}
         "ambiguous"
       else
         emotion_score.max_by{|k, v| v}[0]
+      end
+    end
+
+    def self.return_category_score(category_score)
+      ## 0 if unable to detect emotion
+      if category_score == {}
+        "ambiguous-cat"
+      else
+        category_score.max_by{|k, v| v}[0]
       end
     end
 

@@ -1,4 +1,4 @@
 chime
 =====
 
-Text Analysis gem for Member Based Organizations
+Text Analysis gem for Member Based Comments
