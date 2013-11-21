@@ -1558,7 +1558,8 @@ module EmotionBankPhrases
                 "favorite thing about the y would be the opportunities for families" => "Positive",
                 "i like it so much" => "Positive",
                 "wonderful staff" => "Positive",
-                "friendly," => "Positive"
+                "friendly," => "Positive",
+                "the y has great group exercise" => "Positive"
                }
             end
 end

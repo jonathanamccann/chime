@@ -1730,19 +1730,56 @@ module TermCategories
                 "would think that thats when a lot are offered considering thats what time most people get off work" => "Children's Programs - General",
                 "wouldn't press on anyone what services to utilize" => "Personal Reasons",
                 "wouldn't recommend the Y to them because you cant pay just a separate fee for just using the pool" => "Cost/Value - Membership",
-                "Y also needs Wifi" => "Facility - General",
-                "Y has not changed or updated" => "Facility - General",
-                "Y is a comfortable place to excersize" => "Facility - Size",
+                "y also needs Wifi" => "Facility - General",
+                "y has not changed or updated" => "Facility - General",
+                "y is a comfortable place to excersize" => "Facility - Size",
                 "yoga class in mat room area wreaks of urine" => "Facility - Cleanliness",
                 "you get alot for what you pay" => "Cost/Value - Membership",
-                "You see the director there all the time" => "Staff - Availability",
-                "Your basket of Bible verses brighten my day everyday" => "Personal Reasons",
+                "you see the director there all the time" => "Staff - Availability",
+                "your basket of bible verses brighten my day everyday" => "Personal Reasons",
                 "youth swim classes might be limited in size" => "Children's Programs - Aquatics",
-                "Zumba instructor was amazing" => "Group Ex - Instructor"
+                "zumba instructor was amazing" => "Group Ex - Instructor",
+                "I would like to see more les mills classes added" => "Adult Programs",
+                "The Y has great group exercise" => "Group EX (Variety)",
+                "aerobics areas are too small" => "Facility (Size)",
+                "there are amenities that other Ys have that this Y is lacking" => "Facility (General)",
+                "Many times all machines are in use" => "Facility (Size)",
+                "the most welcoming" => "Staff (Demeanor)",
+                "enjoy the atmosphere" => "Atmosphere (Feeling/Safety)",
+                "our grandchildren participate in" => "Children's Programs (General)",
+                "class for years" => "Group EX (Instructor)",
+                "time for just adults" => "Facility (Hours)",
+                "Parking" => "Facility (General)",
+                "classes starting late" => "Group EX (Schedule)",
+                "Love this place" => "Facility (General)",
+                "variety of class" => "Group EX (Variety)",
+                "great programs" => "Adult Programs",
+                "staff" => "Staff (Demeanor)",
+                "really love that place" => "Facility (General)",
+                "price of your membership" => "Cost/Value (Membership)",
+                "You have good facilities" => "Facility (General)",
+                "very good employee" => "Staff (Demeanor)",
+                "Great kids programs" => "Children's Programs (General)",
+                "gym equipment" => "Equipment (General)",
+                "environemnt" => "Atmosphere (Feeling/Safety)",
+                "Everything is just ok" => "Facility (General)",
+                "The pricing is" => "Cost/Value (Membership)",
+                "helpful staff" => "Staff (Demeanor)",
+                "Family place" => "Atmosphere (Feeling/Safety)",
+                "Programs should be free" => "Cost/Value (Programs)",
+                "programs are overpriced" => "Cost/Value (Programs)",
+                "I don't like the new layout" => "Facility (General)",
+                "fun place for kidz" => "Atmosphere (Feeling/Safety)",
+                "praise your benefits" => "Facility (General)",
+                "I love that the Y serves all ages" => "Personal Reasons",
+                "children are not allowed" => "Facility (General)",
+                "Pool" => "Aquatics (General)",
+                "good facilit" => "Facility (General)"
+
                 }
             end
         end
-
+=begin
 
 "Adaptive Accessibility"
 
@@ -1755,6 +1792,8 @@ module TermCategories
 "Aquatics (General)"
 
 "Adult Programs"
+
+"Equipment (General)"
 
 "Equipment (Weight Machines)"
 
@@ -1809,3 +1848,4 @@ module TermCategories
 "Silver Sneakers"
 
 "Personal Training"
+=end

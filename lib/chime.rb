@@ -33,7 +33,7 @@ module Chime
 
 #This method works off of phrases instead of just words
   def self.category_phrases(array)
-    array.map{|e| TermCategories.get_term_categories.find(proc{[nil,"Undefined"]}){|k,v| e.downcase.include? k}.last}
+    array.map{|e| TermCategories.get_term_categories.find(proc{[nil,"Undefined"]}){|k,v| e.downcase.include? k.downcase}.last}
   end
 
 
