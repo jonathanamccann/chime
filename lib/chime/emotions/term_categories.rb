@@ -1814,7 +1814,32 @@ module TermCategories
                 "bit of everything" => "Facility (General)",
                 "good deal financ" => "Cost/Value (Membership)",
                 "very affordable" => "Cost/Value (Membership)",
-                "value of sports" => "Personal Reasons"
+                "value of sports" => "Personal Reasons",
+                "great facility" => " Facility (General)",
+                "cost of membership" => "Cost/Value (Membership)",
+                "offered to children" => "Children's Programs (General)",
+                "fitness center" => "Facility (General)",
+                "cleaning" => "Facility (Cleanliness)",
+                "sweeping" => "Facility (Cleanliness)",
+                "class" => "Group EX (General)",
+                "classes" => "Group EX (Variety)",
+                "equipment" => "Equipment (General)",
+                "child watch" => "Child Watch",
+                "hours" => "Facility (Hours)",
+                "programming" => "Group EX (Variety)",
+                "price" => "Cost/Value (Membership)",
+                "family" => "Atmosphere (Feeling/Safety",
+                "facilities" => "Facility (General)",
+                "community" => "Mission",
+                "convenient" => "Facility (Location)",
+                "fees" => "Cost/Value (Membership)",
+                "crowded" => "Facility (Size)",
+                "atmosphere" => "Atmosphere (Feeling/Safety)",
+                "afford" => "Cost/Value (Membership)",
+                "cost" => "Cost/Value (Membership)",
+                "spiritual" => "Personal Reasons",
+                "expensive" => "Cost/Value (Membership)",
+                "facility" => "Facility (General)"
                 }
             end
         end
