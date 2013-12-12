@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jonathanamccann"]
-  s.date = "2013-11-21"
+  s.date = "2013-12-12"
   s.description = "Text Analysis for Member Based Organizations"
   s.email = "jonathanamccann@gmail.com"
   s.extra_rdoc_files = [
